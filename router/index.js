@@ -4,13 +4,16 @@ const router = express.Router(); // Express Router
 const request = require("request"); // Request
 const cheerio = require("cheerio"); // Cheerio
 
-router.get("/userImage/:username", async (req, res) => {
-    let username = req.params.username;
+router.get("/", async (req, res) => {
+    let username = req.query.username;
     let result = {};
+	
+	let url = `http://127.0.0.1:5000/api/v1/userImage/${encodeURI(username)}`
 
+	console.log(url)
     // 사용자 이미지 요청
-    request(`https://maplestory.nexon.com/N23Ranking/World/Total?c=${username}&w=254`, function(err, res, body){
-        console.log(body)
+    request(url, function(err, res, body){
+        console.log(JSON.parse(body))
     });
 
     res.end(username);
