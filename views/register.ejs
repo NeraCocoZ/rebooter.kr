@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebooter.KR</title>
+
+    <!-- CSS -->
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href="styles/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- SCRIPT -->
+	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://kit.fontawesome.com/4cdc6862b3.js" crossorigin="anonymous"></script>
+    <script src="script/register.js"></script>
+</head>
+<body>
+	<%- include("./navbar.ejs") %>
+	<%- include("./error_modal.ejs") %>
+	<div class="container">
+		<div id="subtitle" class="d-flex justify-content-center">
+			<p id="subtitle" style="font-family: MaplestoryB; font-size: 15px; margin-top: 1em;">Register</p>
+		</div>
+		<div id="title" class="d-flex justify-content-center">
+			<p id="title" style="font-family: MaplestoryB; font-size: 32px;">회원가입</p>
+		</div>
+		
+		<div id="register_id" class="d-flex justify-content-center">
+			<input id="register_id" class="form-control" type="text" placeholder="아이디 (8 ~ 16 자리)" style="width: 50%; margin-top: 1em; font-family: MaplestoryB;">
+		</div>
+		<div id="register_pw" class="d-flex justify-content-center">
+			<input id="register_pw" class="form-control" type="password" placeholder="비밀번호 (8자리 이상)" style="width: 50%; margin-top: 1em; font-family: MaplestoryB;">
+		</div>
+		<div id="register_pw_check" class="d-flex justify-content-center">
+			<input id="register_pw_check" class="form-control" type="password" placeholder="비밀번호 확인" style="width: 50%; margin-top: 1em; font-family: MaplestoryB;">
+		</div>
+		<div id="register_email" class="d-flex justify-content-center">
+			<input id="register_email" class="form-control" type="text" placeholder="이메일" style="width: 50%; margin-top: 1em; font-family: MaplestoryB;">
+		</div>
+		<div id="register_button" class="d-flex justify-content-center">
+			<button id="register_button" class="btn btn-outline-success" style="width: 50%; margin-top: 1em; font-family: MaplestoryB;">회원가입</button>
+		</div>
+    </div>
+	<!-- SCRIPT -->
+	<script src="script/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

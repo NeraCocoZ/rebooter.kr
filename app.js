@@ -15,8 +15,12 @@ app.use(express.static("public")); // Public 정적 폴더
 
 // 라우터
 let index = require("./router/index");
+let register = require("./router/register");
+let usersearch = require("./router/usersearch");
 
 app.use("/", index);
+app.use("/register", register);
+app.use("/usersearch", usersearch);
 
 // 서버 실행
 app.listen(port, () => {console.log("[ Rebooter.kr ] 서버가 실행되었습니다.")});

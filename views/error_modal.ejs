@@ -1,0 +1,30 @@
+<style>
+	#modal_title, #modal_message, #modal_close {
+		font-family: MaplestoryB;
+	}
+</style>
+
+<div id="error_modal" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="modal_title" class="modal-title"></h5>
+			</div>
+			<div class="modal-body">
+				<p id="modal_message"></p>
+			</div>
+			<div class="modal-footer">
+				<button id="modal_close" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">닫기</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function error_modal_show(error_title, error_message){
+		$("#modal_title").html(error_title);
+		$("#modal_message").html(error_message);
+		
+		$("#error_modal").modal("show");
+	}
+</script>

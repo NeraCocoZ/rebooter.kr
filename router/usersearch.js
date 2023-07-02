@@ -5,7 +5,13 @@ const request = require("request"); // Request
 const cheerio = require("cheerio"); // Cheerio
 
 router.get("/", (req, res) => {
-    res.render("index");
+    // 유저 이름
+    let username = req.query.username;
+
+    if(username == undefined)
+        res.redirect("/");
+	
+	res.end(username)
 });
 
 module.exports = router;

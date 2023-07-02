@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebooter.KR</title>
+
+    <!-- CSS -->
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href="styles/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- SCRIPT -->
+	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://kit.fontawesome.com/4cdc6862b3.js" crossorigin="anonymous"></script>
+    <script src="script/index.js"></script>
+</head>
+<body>
+	<%- include("./navbar.ejs") %>
+	<div class="container">
+		<div id="subtitle" class="d-flex justify-content-center">
+			<p id="subtitle" style="font-family: MaplestoryB; font-size: 15px; margin-top: 1em;">Of the Reboot, by the Reboot, for the Reboot</p>
+		</div>
+		<div id="title" class="d-flex justify-content-center">
+			<p id="title" style="font-family: MaplestoryB; font-size: 32px;">Rebooter.KR</p>
+		</div>
+		
+		<div id="usersearch" class="d-flex justify-content-center">
+			<input id="usersearch" class="form-control" type="text" placeholder="닉네임을 입력해주세요." style="width: 50%; margin-top: 1em;">
+		</div>
+		<div id="usersearch_button" class="d-flex justify-content-center">
+			<button id="usersearch_button" class="btn btn-outline-primary" style="width: 50%; margin-top: 1em;">검색</button>
+		</div>
+    </div>
+	<!-- SCRIPT -->
+	<script src="script/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

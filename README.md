@@ -14,3 +14,4 @@
     7. userGuild (완성)
 
 * 메인 페이지는 NodeJS로 (예정)
+* 회원가입시 API KEY 받아서 계정 인증

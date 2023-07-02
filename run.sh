@@ -1,0 +1,1 @@
+FLASK_APP=/workspace/Rebooter_KR/api/run.py FLASK_RUN_HOST="0.0.0.0" FLASK_RUN_PORT=5000 flask run
