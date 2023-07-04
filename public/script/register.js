@@ -13,47 +13,56 @@ $(document).ready(function(){
 		
 		// 입력 오류
 		if(!input_check_result) return;
-		
+
 		// 회원가입 요청
-		$.ajax({
-			type: "POST",
-			url: "/register",
-			dataType: "json",
-			data: {
-				username: username,
-				password: password,
-				email: email
-			},
-			success: function(result){
-				console.log(result)
-				
-				// 회원가입 성공
-				if(result.result){
-					
-				}
-				// 회원가입 실패
-				else{
-					// 아이디 중복
-					if(result.resultMessage == "id_overlap"){
-						error_modal_show("회원가입 실패", "이미 사용중인 아이디 입니다.");
-						error_element = $("input#register_id");
-					}
-					// 이메일 중복
-					else if(result.resultMessage == "email_overlap"){
-						error_modal_show("회원가입 실패", "이미 사용중인 이메일 입니다.");
-						error_element = $("input#register_pw");
-					}
-				}
-			},
-			error: function(){
-				error_modal_show("회원가입 실패", "서버에 연결 할 수 없습니다.");
+		sendAjax("/register", "POST", {username: username, password: password, email: email}, 
+		// 요청 성공
+		function(result){
+			// 회원가입 성공
+			if(result.result){
+				error_modal_show("회원가입 성공", "회원가입에 성공했습니다.");
+				error_element = "register_success";
 			}
-		})
+			// 회원가입 실패
+			else {
+				// 아이디 중복
+				if(result.resultMessage == "id_overlap"){
+					error_modal_show("회원가입 실패", "이미 사용중인 아이디 입니다.");
+					error_element = $("input#register_id");
+				}
+				// 이메일 중복
+				else if(result.resultMessage == "email_overlap"){
+					error_modal_show("회원가입 실패", "이미 사용중인 이메일 입니다.");
+					error_element = $("input#register_pw");
+				}
+			}
+		},
+		// 요청 실패
+		function(){
+			error_modal_show("회원가입 실패", "서버에 연결 할 수 없습니다.");
+		},
+		// 요청 대기
+		function(){			
+			// 회원가입 버튼 비활성화
+			$("button#register_button").attr("disabled", true);
+
+			// 회원가입 버튼 로딩
+			$("button#register_button").html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`);
+		},
+		// 종료
+		function(){
+			// 회원가입 버튼 활성화
+			$("button#register_button").attr("disabled", false);
+
+			// 회원가입 버튼 로딩
+			$("button#register_button").html(`회원가입`);
+		});
     });
 	
 	// 모달 닫기 버튼 클릭
 	$("#modal_close").click(function(){
-		error_element.focus();
+		if(error_element == "register_success") window.location.href = "/login";
+		else error_element.focus();
 	})
 });
 
@@ -100,4 +109,18 @@ function input_check(){
 	}
 	
 	return result;
+}
+
+// ajax 전송
+function sendAjax(url, type, data, success, error, wait, complete, async = true){
+    $.ajax({
+        url: url,
+        type: type,
+        data: data,
+        async: async,
+        success: success,
+        error: error,
+        beforeSend: wait,
+		complete: complete
+    });
 }

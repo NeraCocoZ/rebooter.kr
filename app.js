@@ -4,7 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 // 변수 선언
-let port = 80;
+let port = 8080;
 
 // 서버 생성
 let app = express();
